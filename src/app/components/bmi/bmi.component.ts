@@ -5,19 +5,39 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './bmi.component.html',
   styleUrls: ['./bmi.component.css']
 })
+
 export class BmiComponent implements OnInit {
 
-  height:number;
-  mass:number;
   index:number;
-  constructor() { }
-
+  backgroundsForTable:string[];
+  constructor(){
+    this.index=0;
+    this.backgroundsForTable=["","","",""];
+  }
   ngOnInit(): void {
   }
-
-  btnClicked(_height,_mass){
-    index=_height/((_mass/100)^2);
-
+  calculateBMI(height:any,mass:any)
+  {
+    this.index=mass/((height/100)^2);
+    if(this.index < 18.5)
+    {
+      this.backgroundsForTable=["","","",""];
+      this.backgroundsForTable[0] = "table-success";
+    }
+    else if(this.index < 24.9)
+    {
+      this.backgroundsForTable=["","","",""];
+      this.backgroundsForTable[1] = "table-success";
+    }
+    else if(this.index < 29.9)
+    {
+      this.backgroundsForTable=["","","",""];
+      this.backgroundsForTable[2] = "table-success";
+    }
+    else
+    {
+      this.backgroundsForTable=["","","",""];
+      this.backgroundsForTable[3] = "table-success";
+    };
   }
-
 }

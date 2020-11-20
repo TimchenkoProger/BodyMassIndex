@@ -1,12 +1,35 @@
-<div>
-  <h1>Индекс массы тела:</h1>
-  <hr>
-  <form>
-    <div class="form-group">
-      <input type="text" name="_height" class="form-control">
-      <input type="text" name="_mass" class="form-control">
-      <button class="btn btn-info" (click)="btnClicked()">Вычислить</button>
-    </div>
-  </form>
-  {{index}}
+<div class="container">
+  <br><h2>Body mass index: {{index}}</h2>
+  <hr/>
+  <div class="form-group">
+    <form>
+        <label for="height">Height (cm)</label><br>
+        <input type="text" id="idHeight" placeholder="175 cm" #height><br>
+        <label for="mass">Mass (kg)</label><br>
+        <input type="text" id="idMass" placeholder="75 kg" #mass><br><br>
+        <button type="button" (click)="calculateBMI(height.value,mass.value)" class="btn btn-outline-success">Calculate</button>
+    </form>
+  </div>
+  <div class="container">
+  <table class="table table-sm table-bordered">
+    <tbody>
+      <tr class="{{backgroundsForTable[0]}}">
+        <td>BMI less 18.5:</td>
+        <td>Underweight</td>
+      </tr>
+      <tr class="{{backgroundsForTable[1]}}">
+        <td>BMI from 18.5 to 24.9:</td>
+        <td>Normal weight</td>
+      </tr>
+      <tr class="{{backgroundsForTable[2]}}">
+        <td>BMI from 25 to 29.9:</td>
+        <td>Overweight</td>
+      </tr>
+      <tr class="{{backgroundsForTable[3]}}">
+        <td>BMI of 30 or greater</td>
+        <td>Obesity </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 </div>
