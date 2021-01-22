@@ -1,3 +1,3 @@
 # BodyMassIndex
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshoot.png)
